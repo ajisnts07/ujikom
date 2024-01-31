@@ -1,0 +1,5 @@
+// badge
+// primary-badge
+.primary-badge {
+  @include badge($bg-secondary, $primary-color);
+}

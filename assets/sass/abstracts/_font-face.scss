@@ -1,0 +1,20 @@
+// font-face
+$font-path: '../fonts/';
+
+// inter bold
+@font-face {
+  font-family: $inter-bold;
+  src: url('#{$font-path}Inter-Bold.ttf');
+}
+
+// inter semi bold
+@font-face {
+  font-family: $inter-semibold;
+  src: url('#{$font-path}Inter-SemiBold.ttf');
+}
+
+// inter regular
+@font-face {
+  font-family: $inter-regular;
+  src: url('#{$font-path}Inter-Regular.ttf');
+}
