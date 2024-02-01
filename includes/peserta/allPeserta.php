@@ -141,6 +141,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th>Kode Skema</th>
+                <th>Nama Skema</th>
                 <th>Nama Peserta</th>
                 <th>JK</th>
                 <th>Alamat</th>
@@ -167,6 +168,7 @@
               <tr>
                 <td scope="row"><?php echo $no++; ?></td>
                 <td><?php echo $data['Kd_skema']; ?></td>
+                <td><?php echo $data['Nm_skema']; ?></td>
                 <td><?php echo $data['Nm_peserta']; ?></td>
                 <td><?php echo $data['Jekel']; ?></td>
                 <td><?php echo $data['Alamat']; ?></td>

@@ -124,7 +124,15 @@ include './config/connection.php';
           <!-- col -->
           <div class="col">
             <div class="card h-100 p-5 rounded-5" style="background-color: #3547ac">
-              <h1 class="text-white z-3" style="font-size: 80px">4</h1>
+            <?php
+              include './config/connection.php';
+
+              $sql = mysqli_query($conn, "SELECT * FROM peserta");
+              $jumlah_peserta = mysqli_num_rows($sql);
+            ?>
+              <h1 class="text-white z-3" style="font-size: 80px">
+                <?php echo $jumlah_peserta; ?>
+              </h1>
               <p class="text-white z-3">Total Peserta</p>
               <div class="accsent-1 position-absolute end-0 bottom-0"></div>
               <div class="accsent-2 position-absolute end-0 bottom-0"></div>
@@ -134,7 +142,13 @@ include './config/connection.php';
           <!-- col -->
           <div class="col">
             <div class="card h-100 p-5 rounded-5 d-flex justify-content-center align-items-center">
-              <h1>4 Skema</h1>
+              <?php
+                include './config/connection.php';
+
+                $sql = mysqli_query($conn, "SELECT * FROM skema");
+                $jumlah_skema = mysqli_num_rows($sql);
+              ?>
+              <h1><?php echo $jumlah_skema; ?> Skema</h1>
             </div>
           </div>
 
@@ -167,6 +181,7 @@ include './config/connection.php';
               <tr>
                 <th scope="col">#</th>
                 <th>Kode Skema</th>
+                <th>Nama Skema</th>
                 <th>Nama Peserta</th>
                 <th>JK</th>
                 <th>Alamat</th>
@@ -192,6 +207,7 @@ include './config/connection.php';
               <tr>
                 <td scope="row"><?php echo $no++; ?></td>
                 <td><?php echo $data['Kd_skema']; ?></td>
+                <td><?php echo $data['Nm_skema']; ?></td>
                 <td><?php echo $data['Nm_peserta']; ?></td>
                 <td><?php echo $data['Jekel']; ?></td>
                 <td><?php echo $data['Alamat']; ?></td>
@@ -229,7 +245,16 @@ include './config/connection.php';
           datasets: [
             {
               label: 'Total',
-              data: [3, 1],
+              data: [
+                <?php
+                $sql = mysqli_query($conn, "SELECT * FROM skema WHERE Jenis='KKNI'");
+                echo mysqli_num_rows($sql);
+                ?>,
+                <?php
+                $jml_cluster = mysqli_query($conn, "SELECT * FROM skema WHERE Jenis='Cluster'");
+                echo mysqli_num_rows($jml_cluster);
+                ?>
+              ],
               backgroundColor: ['#3547ac', '#848ba2'],
               hoverOffset: 5,
             },

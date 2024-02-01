@@ -59,10 +59,10 @@
             </a>
             <!-- accordion-collapse -->
             <div id="peserta" class="accordion-collapse collapse show" data-bs-parent="#accordion">
-              <a href="../../allPeserta.php" class="py-2">
+              <a href="./allPeserta.php" class="py-2">
                 <p>- All Peserta</p>
               </a>
-              <a href="../../addPeserta.php" class="py-2">
+              <a href="./addPeserta.php" class="py-2">
                 <p class="fw-bold" style="color: #1e2463">- Add Peserta</p>
               </a>
             </div>
@@ -136,15 +136,31 @@
                 <input type="hidden" name="Id_peserta" value="$Id_peserta">
                 <div class="mb-3">
                   <label for="Kd_skema">Kode Skema</label>
-                  <select class="form-select py-2 rounded-3" name="Kd_skema" id="Kd_skema" autofocus>
+                  <select class="form-select py-2 rounded-3" name="Kd_skema" id="Kd_skema">
                     <option selected>Open this select menu</option>
                     <?php
-                      $sql = mysqli_query($conn, "SELECT Kd_skema FROM skema") or die (mysqli_error($conn));
+                      $sql = mysqli_query($conn, "SELECT * FROM skema") or die (mysqli_error($conn));
                       while (
                         $data = mysqli_fetch_array($sql)
                       ) {
                     ?>
-                    <option value="<?php echo $data['Kd_skema']; ?>"><?php echo $data['Kd_skema']; ?></option>
+                    <option value="<?php echo $data['Kd_skema']; ?>"><?php echo $data['Kd_skema']; ?> <?php echo $data['Nm_skema']; ?></option>
+                    <?php
+                      }
+                    ?>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="Nm_skema">Nama Skema * samakan dengan diatas</label>
+                  <select class="form-select py-2 rounded-3" name="Nm_skema" id="Nm_skema">
+                    <option selected>Open this select menu</option>
+                    <?php
+                      $sql = mysqli_query($conn, "SELECT * FROM skema") or die (mysqli_error($conn));
+                      while (
+                        $data = mysqli_fetch_array($sql)
+                      ) {
+                    ?>
+                    <option value="<?php echo $data['Nm_skema']; ?>"><?php echo $data['Nm_skema']; ?></option>
                     <?php
                       }
                     ?>

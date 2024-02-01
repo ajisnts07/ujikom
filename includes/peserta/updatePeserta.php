@@ -135,6 +135,15 @@
                   <label for="Kd_skema">Kode Skema</label>
                   <input type="text" class="form-control py-2 rounded-3" name="Kd_skema" autocomplete="off" required value="<?php echo $data['Kd_skema'] ?>"/>
                 </div>
+                <?php
+                  $Kd_skema = $data['Kd_skema'];
+                    $sql = mysqli_query($conn, "SELECT * FROM skema WHERE Kd_skema = '$Kd_skema'") or die (mysqli_error($conn));
+                    $skema = mysqli_fetch_array($sql);
+                ?>
+                <div class="mb-3">
+                  <label for="Nm_skema">Nama Skema</label>
+                  <input type="text" class="form-control py-2 rounded-3" name="Nm_skema" autocomplete="off" required value="<?php echo $skema['Nm_skema']; ?>">
+                </div>
                 <div class="mb-3">
                   <label for="Nm_peserta">Nama Peserta</label>
                   <input type="text" class="form-control py-2 rounded-3" name="Nm_peserta" autocomplete="off" required value="<?php echo $data['Nm_peserta'] ?>"/>
